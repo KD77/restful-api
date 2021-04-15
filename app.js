@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose= require('mongoose');
-const bodyParser = require('body-parser');
-require('dotenv/config')
+const cors = require('cors');
+require('dotenv/config');
 const app = express();
 
 
@@ -11,6 +11,7 @@ const con = mongoose.connection;
 con.on('open', ()=>{
   console.log('mongoose connected ...')
 })
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
