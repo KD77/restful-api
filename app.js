@@ -4,6 +4,8 @@ const cors = require('cors');
 require('dotenv/config');
 const app = express();
 
+const PORT =process.env.PORT || 3000
+
 
 mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser:true,useUnifiedTopology: true});
 const con = mongoose.connection;
@@ -20,6 +22,6 @@ app.use(express.urlencoded({
 const artRouter = require('./routes/artPeices')
 app.use('/artPeices', artRouter)
 
-app.listen(3000, ()=>{
+app.listen(PORT, ()=>{
   console.log('Server started')
 });
