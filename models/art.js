@@ -11,6 +11,11 @@ const artSchema = new mongoose.Schema({
     type: String, 
     required: true
   },
+  view:{
+    type: String,
+    required: true
+
+  },
   date: {
     type: Date,
     default:Date.now
