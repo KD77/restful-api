@@ -17,8 +17,8 @@ router.get('/', async(req,res)=>{
 router.post('/', async(req,res)=>{
   const art = new Art({
     name: req.body.name,
-    description: req.body.description
-   
+    description: req.body.description,
+    view:req.body.view
     
   });
   try {
