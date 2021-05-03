@@ -33,10 +33,31 @@ router.post('/', async(req,res)=>{
 router.get('/:postId', async(req,res)=>{
   
   try {
-    const art = await Art.findById(req.params.postId);
-    res.json(art)
+    const artPost = await Art.findById(req.params.postId);
+    res.json(artPost)
   } catch (error) {
     res.json({message:error})
   }
 })
+
+//DELETE POST POST
+router.delete('/:postId', async(req,res)=>{
+  try {
+    const removedArt = await Art.remove({_id:req.params.postId})
+    res.json(removedArt)
+    
+  } catch (error) {
+    res.json({message:error})
+  }
+})
+
+//UPDATE POST
+  router.patch('/:postId', async(req,res)=>{
+try {
+  const updatedArt = await Art.updateOne({_id:req.params.postId},{$set:{view:req.body.view}})
+  res.json(updatedArt)
+} catch (error) {
+  res.json({message:error})
+}
+  })
 module.exports=router
