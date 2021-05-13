@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router()
-const Art = require('../models/art')
 
+const Art=require('../models/art');
 // GET BACK ALL THE POSTS
 router.get('/', async(req,res)=>{
   try {

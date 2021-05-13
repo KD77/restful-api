@@ -21,6 +21,8 @@ app.use(express.urlencoded({
 
 const artRouter = require('./routes/artPeices')
 app.use('/artPeices', artRouter)
+const thoughtsRouter = require('./routes/artThoughts')
+app.use('/artThoughts',thoughtsRouter)
 
 app.listen(PORT, ()=>{
   console.log('Server started')
